@@ -9,7 +9,7 @@ import (
 
 func hello(w http.ResponseWriter, r *http.Request) {
     t, _ := template.ParseFiles("index.html")
-    t.Execute(w, "Hello World!")
+    t.Execute(w, "Hello World!" + os.Getenv("K8S_ENVIRONMENT"))
 }
 
 func main() {
